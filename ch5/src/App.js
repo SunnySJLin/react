@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-import './App.css';
+import cssClasses from './App.css';
 import Person from './Person/Person';
 
 class App extends Component {
@@ -51,21 +50,9 @@ class App extends Component {
   }
 
   render() {
-    const StyledButton = styled.button`
-      background-color: ${props => props.alt ? 'red' : 'green'};
-      color: white;
-      font: inherit;
-      border: 1px solid blue;
-      padding: 8px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
-        color: black;
-      }
-    `;
-
     let persons = null;
+
+    let btnClass = [cssClasses.Button]; //pointer
 
     if(this.state.showPerson) {
       persons = (
@@ -81,32 +68,28 @@ class App extends Component {
         </div>
       );
 
-      // styleInline.backgroundColor = 'red';
-      // styleInline[":hover"] = {
-      //   backgroundColor: 'salmon',
-      //   color: 'black'
-      // };
+      btnClass.push(cssClasses.Red);
     }
 
     // let classes = ['red', 'bold'].join(' ');
     const classes = [];
     if(this.state.persons.length <= 2) {
-      classes.push('red'); // classes = ['red']
+      classes.push(cssClasses.red); // classes = ['red']
     }
     if(this.state.persons.length <= 1) {
-      classes.push('bold'); //classes = ['red', 'bold']
+      classes.push(cssClasses.bold); //classes = ['red', 'bold']
     }
 
     return (
-      <div className="App">
+      <div className={cssClasses.App}>
         <h1>Hi I'm React app</h1>
-        <p className={classes.join(' ')}>This is really working</p>
+        <p className={classes.join(' ')}>setting className dynamically</p>
 
-        <StyledButton
-          alt={this.state.showPerson}
+        <button
+          className={btnClass.join(' ')}
           onClick={this.togglePersonsHandler}>
           Toggle persons
-        </StyledButton>
+        </button>
 
         {persons}
       </div>
