@@ -87,13 +87,20 @@ class App extends Component {
       };
     }
 
-    let classes = ['red', 'bold'].join(' ');
+    // let classes = ['red', 'bold'].join(' ');
+    const classes = [];
+    if(this.state.persons.length <= 2) {
+      classes.push('red'); // classes = ['red']
+    }
+    if(this.state.persons.length <= 1) {
+      classes.push('bold');
+    }
 
     return (
       <StyleRoot>
         <div className="App">
           <h1>Hi I'm React app</h1>
-          <p className={classes}>This is really working</p>
+          <p className={classes.join(' ')}>This is really working</p>
 
           <button
             style={styleInline}
