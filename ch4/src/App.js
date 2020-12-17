@@ -13,24 +13,32 @@ class App extends Component {
     showPerson: false
   }
 
-  switchNameHandler = (newName) => {
-    // DON'T DO THIS: this.state.persons[0].name = 'Sunny';
+  changeNameHandler = (event, id) => {
+    const personIndex = this.state.persons.findIndex(p => {
+      return p.id === id;
+    });
+
+    const person = {
+      ...this.state.persons[personIndex]
+    };
+    // const person = Object.assign({}, this.state.persons[personIndex]);
+    
+    person.name = event.target.value;
+
+    const persons = [...this.state.persons];
+    persons[personIndex] = person;
+
     this.setState({
-      persons: [
-        {name: newName, age: 20},
-        {name: "bb", age: 30},
-        {name: "cc", age: 45}
-      ]
+      persons: persons
     });
   }
 
-  changeNameHandler = (event) => {
+  deletePersonHandler = (index) => {
+    // const persons = this.state.persons.slice();
+    const persons = [...this.state.persons];
+    persons.splice(index, 1);
     this.setState({
-      persons: [
-        {name: "aa", age: 20},
-        {name: event.target.value, age: 30},
-        {name: "cc", age: 45}
-      ]
+      persons: persons
     });
   }
 
@@ -55,21 +63,14 @@ class App extends Component {
     if(this.state.showPerson) {
       persons = (
         <div>
-          <Person 
-              name={this.state.persons[0].name}
-              age={this.state.persons[0].age}/>
-
-          <Person 
-            name={this.state.persons[1].name}
-            age={this.state.persons[1].age}
-            clicked={this.switchNameHandler.bind(this, "Sunny!")}
-            changed={this.changeNameHandler}>
-            My Hobbies: Racing
-          </Person>
-
-          <Person 
-            name={this.state.persons[2].name}
-            age={this.state.persons[2].age}/>
+          {this.state.persons.map((person, index) => {
+            return <Person
+              key={person.id}
+              name={person.name}
+              age={person.age}
+              clicked={() => this.deletePersonHandler(index)}
+              changed={(event) => this.changeNameHandler(event, person.id)}/>
+          })}
         </div>
       );
     }
