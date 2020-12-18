@@ -6,7 +6,7 @@ import Cockpit from '../components/Cockpit/Cockpit';
 class App extends Component {
   constructor(props) {
     super(props);
-    console.log('[App.js] constructor 1');
+    console.log('[App.js] constructor');
     //set some initial state based on props
     //can setup state like: this.state = {};
     //but don't use: this.setState();
@@ -23,18 +23,18 @@ class App extends Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    console.log('[App.js] getDerivedStateFromProps 2', props);
+    console.log('[App.js] getDerivedStateFromProps', props);
     return state;
   }
 
-  componentWillMount() {
-    //will be removed in the future
-    //generally it would be something like preparing your state correctly
-    console.log('[App.js] componentWillMount 3.5');
-  }
+  // componentWillMount() {
+  //   //will be removed in the future
+  //   //generally it would be something like preparing your state correctly
+  //   console.log('[App.js] componentWillMount');
+  // }
 
   componentDidMount() {
-    console.log('[App.js] componentDidMount 4');
+    console.log('[App.js] componentDidMount');
   }
 
   changeNameHandler = (event, id) => {
@@ -74,7 +74,7 @@ class App extends Component {
   }
 
   render() {
-    console.log('[App.js] render 3');
+    console.log('[App.js] render');
     let persons = null;
 
     if(this.state.showPersons) {
