@@ -4,6 +4,14 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log('[App.js] constructor 1');
+    //set some initial state based on props
+    //can setup state like: this.state = {};
+    //but don't use: this.setState();
+  }
+
   state = {
     persons: [
       {id: "a111", name: "aa", age: 20},
@@ -12,6 +20,21 @@ class App extends Component {
     ],
     otherState: "some other state",
     showPersons: false
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerivedStateFromProps 2', props);
+    return state;
+  }
+
+  componentWillMount() {
+    //will be removed in the future
+    //generally it would be something like preparing your state correctly
+    console.log('[App.js] componentWillMount 3.5');
+  }
+
+  componentDidMount() {
+    console.log('[App.js] componentDidMount 4');
   }
 
   changeNameHandler = (event, id) => {
@@ -51,6 +74,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('[App.js] render 3');
     let persons = null;
 
     if(this.state.showPersons) {
