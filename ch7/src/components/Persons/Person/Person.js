@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import cssClasses from './Person.css';
 
+import Aux from '../../../hoc/Auxilliary'; // import { Fragment } from 'react';
+
 class Person extends Component {
   render() {
-    console.log('[Perosn.js] rendering... (2)');
+    console.log('[Perosn.js] rendering...');
     
     return (
-      <div className={cssClasses.Person}>
+      <Aux>
         <p onClick={this.props.clicked}>I'm {this.props.name}, {this.props.age} years old!</p>
         <p>{this.props.children}</p>
         <input 
@@ -14,8 +16,19 @@ class Person extends Component {
           onChange={this.props.changed} 
           value={this.props.name}
           />
-      </div>
+      </Aux>
     )
+
+    // return [
+    //   <p key="id1" onClick={this.props.clicked}>I'm {this.props.name}, {this.props.age} years old!</p>,
+    //   <p key="id2">{this.props.children}</p>,
+    //   <input 
+    //     key="id3" 
+    //     type="text" 
+    //     onChange={this.props.changed} 
+    //     value={this.props.name}
+    //     />
+    // ]
   }
 }
 
