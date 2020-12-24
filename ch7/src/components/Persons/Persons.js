@@ -30,9 +30,9 @@ class Persons extends PureComponent {
   // componentWillUpdate() {
   // }
 
-  componentDidUpdate(prevProps, prevState, snapshoot) {
+  componentDidUpdate(prevProps, prevState, snapshot) {
     console.log('[Persons.js] componentDidUpdate');
-    console.log(snapshoot);
+    console.log(snapshot);
   }
 
   componentWillUnmount() {
@@ -51,7 +51,7 @@ class Persons extends PureComponent {
           clicked={() => this.props.click(index)}
           changed={(event) => this.props.change(event, person.id)}
         />
-      )
+      );
     });
   }
 }

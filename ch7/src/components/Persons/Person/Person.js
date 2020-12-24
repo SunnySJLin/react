@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 import AuthContext from '../../../context/auth-context';
 
 class Person extends Component {
+
+  static contextType = AuthContext;
+
   constructor(props) {
     super(props);
     this.inputElementRef = React.createRef(); // React object
@@ -15,18 +18,16 @@ class Person extends Component {
     // document.querySelector('input').focus(); // select the first element only
     // this.inputElement.focus(); // pass a function
     this.inputElementRef.current.focus();
+
+    console.log('[Person.js] componentDidMount', this.context.authenticated);
   }
 
   render() {
-    console.log('[Perosn.js] rendering...');
+    console.log('[Person.js] rendering...');
     
     return (
       <Aux>
-        <AuthContext.Consumer>
-          { (context) =>
-              context.authenticated ? <p>Authenticated!</p> : <p>Please log in.</p>
-          }
-        </AuthContext.Consumer>
+        {this.context.authenticated ? <p>Authenticated!</p> : <p>Please log in.</p>}
         <p onClick={this.props.clicked}>I'm {this.props.name}, {this.props.age} years old!</p>
         <p>{this.props.children}</p>
         <input 
@@ -37,7 +38,7 @@ class Person extends Component {
           value={this.props.name}
           />
       </Aux>
-    )
+    );
   }
 }
 
@@ -46,6 +47,6 @@ Person.propTypes = {
   name: PropTypes.string,
   age: PropTypes.number,
   changed: PropTypes.func
-}
+};
 
 export default withClass(Person, cssClasses.Person);
