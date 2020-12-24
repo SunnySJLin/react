@@ -23,7 +23,8 @@ class App extends Component {
     otherState: "some other state",
     showPersons: false,
     showCockpit: true,
-    changeCounter: 0
+    changeCounter: 0,
+    authenticated: false
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -95,6 +96,10 @@ class App extends Component {
     });
   }
 
+  logninHandler = () => {
+    this.setState({authenticated: true});
+  }
+
   render() {
     console.log('[App.js] render');
     let persons = null;
@@ -103,7 +108,8 @@ class App extends Component {
       persons = <Persons 
           persons={this.state.persons}
           click={this.deletePersonHandler}
-          change={this.changeNameHandler} />;
+          change={this.changeNameHandler}
+          isAuthenticated={this.state.authenticated} />;
     }
 
     return (
@@ -123,7 +129,8 @@ class App extends Component {
             title={this.props.appTitle}
             showPersons={this.state.showPersons}
             personsLength={this.state.persons.length}
-            clicked={this.togglePersonsHandler} 
+            clicked={this.togglePersonsHandler}
+            login={this.logninHandler}
           />
         ) : null}
         {persons}
