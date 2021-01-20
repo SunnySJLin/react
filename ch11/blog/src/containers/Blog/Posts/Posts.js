@@ -40,8 +40,6 @@ class Posts extends Component {
             key={post.id} 
             title={post.title}
             author={post.author}
-            // {...this.props}
-            // match={this.props.match}
             clicked={() => this.postSelectedHandler(post.id)}/>;
         });
     }
