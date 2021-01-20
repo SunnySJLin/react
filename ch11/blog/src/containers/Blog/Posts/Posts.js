@@ -15,8 +15,8 @@ class Posts extends Component {
           const posts = response.data.slice(0, 4);
           const updatedPosts = posts.map(post => {
             return {
-                ...post,
-                  author: 'SunnysjLin'
+              ...post,
+              author: 'SunnysjLin'
             }
           });
           this.setState({posts: updatedPosts});
@@ -36,11 +36,13 @@ class Posts extends Component {
     let posts = <p style={{textAlign: 'center'}}>Something went wrong!</p>;
     if(!this.state.error) {
         posts = this.state.posts.map(post => {
-            return <Post 
-                key={post.id} 
-                title={post.title}
-                author={post.author}
-                clicked={() => this.postSelectedHandler(post.id)}/>;
+          return <Post 
+            key={post.id} 
+            title={post.title}
+            author={post.author}
+            // {...this.props}
+            // match={this.props.match}
+            clicked={() => this.postSelectedHandler(post.id)}/>;
         });
     }
 
