@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    text-align:center;
+    text-align: center;
 }
 
 .Blog li {
@@ -17,6 +17,7 @@
 }
 
 .Blog a:hover,
-.Blog a:active {
+.Blog a:active,
+.Blog a.active {
     color: #fa923f;
 }
