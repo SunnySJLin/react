@@ -26,7 +26,11 @@ class NewPost extends Component {
         axios.post('/posts', data)
             .then(response => {
                 console.log(response);
-                this.setState({submitted: true});
+                // push a new page and redirect, can click the back button
+                // this.props.history.push('/posts');
+                // won't go back, replaced on a stack of pages.
+                this.props.history.replace('/posts'); 
+                // this.setState({submitted: true});
             });
     }
 
@@ -37,7 +41,7 @@ class NewPost extends Component {
         }
         return (
             <div className="NewPost">
-                {redirect}
+                {/* {redirect} */}
                 <h1>Add a Post</h1>
                 <label>Title</label>
                 <input type="text" value={this.state.title} onChange={(event) => this.setState({title: event.target.value})} />
