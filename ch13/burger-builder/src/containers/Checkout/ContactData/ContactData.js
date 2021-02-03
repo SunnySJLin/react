@@ -45,7 +45,8 @@ class ContactData extends Component {
         validation: {
           required: true,
           minLength: 5,
-          maxLength: 5
+          maxLength: 5,
+          isNumeric: true
         },
         valid: false,
         touched: false
@@ -71,7 +72,8 @@ class ContactData extends Component {
         },
         value: '',
         validation: {
-          required: true
+          required: true,
+          isEmail: true
         },
         valid: false,
         touched: false
@@ -106,8 +108,6 @@ class ContactData extends Component {
       orderData: formData
     }
 
-    console.log(this.props);
-
     axios.post('/orders.json', order)
       .then(response => {
         // console.log(response);
@@ -139,6 +139,16 @@ class ContactData extends Component {
       isValid = value.length <= rules.maxLength && isValid;
     }
 
+    if(rules.isNumeric) { // for ZIP Code
+      const pattern = /^\d+$/;
+      isValid = pattern.test(value) && isValid;
+    }
+
+    if(rules.isEmail) {
+      const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+      isValid = pattern.test(value) && isValid; 
+    }
+
     return isValid;
   }
 
@@ -158,8 +168,7 @@ class ContactData extends Component {
     for(let inputId in updatedOrderForm) {
       formIsValid = updatedOrderForm[inputId].valid && formIsValid;
     }
-    console.log(formIsValid);
-    console.log(updatedOrderForm);
+    
     this.setState({orderForm: updatedOrderForm, formIsValid: formIsValid});
   }
 
