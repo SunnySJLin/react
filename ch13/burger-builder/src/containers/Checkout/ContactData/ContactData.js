@@ -153,6 +153,7 @@ class ContactData extends Component {
   }
 
   inputChangedHandler = (event, inputId) => {
+    console.log(event.target.value);
     const updatedOrderForm = {
       ...this.state.orderForm
     };
@@ -169,6 +170,7 @@ class ContactData extends Component {
       formIsValid = updatedOrderForm[inputId].valid && formIsValid;
     }
     
+    console.log(updatedOrderForm);
     this.setState({orderForm: updatedOrderForm, formIsValid: formIsValid});
   }
 
