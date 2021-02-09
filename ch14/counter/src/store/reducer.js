@@ -1,3 +1,5 @@
+import * as ActionTypes from './actions';
+
 const initialState = {
   counter: 0,
   results: []
@@ -5,33 +7,33 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {
-    case 'INCREMENT':
+    case ActionTypes.INCREMENT:
       // const newState = state;
       // -- ERROR: this directly modifies the existing object reference - don't do this!
       const newState = Object.assign({}, state);
       newState.counter = state.counter + 1;
       return newState;
-    case 'DECREMENT':
+    case ActionTypes.DECREMENT:
       return {
         ...state,
         counter: state.counter - 1
       }
-    case 'ADD':
+    case ActionTypes.ADD:
       return {
         ...state,
         counter: state.counter + action.val
       }
-    case 'SUBTRACT':
+    case ActionTypes.SUBTRACT:
       return {
         ...state,
         counter: state.counter - action.val
       }
-    case 'STORE_RESULT':
+    case ActionTypes.STORE_RESULT:
       return {
         ...state,
         results: state.results.concat({id: new Date(), value: state.counter})
       }
-    case 'DELETE_RESULT':
+    case ActionTypes.DELETE_RESULT:
       // -- Problem: this only does a shallow copy!
       // -- ERROR: newArray is still the same object!
       // const id = 2;
