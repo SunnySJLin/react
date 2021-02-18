@@ -24,7 +24,7 @@ export const add = (value) => {
   };
 };
 
-export const substract = (value) => {
+export const subtract = (value) => {
   return {
     type: SUBTRACT,
     val: value
@@ -38,9 +38,9 @@ export const storeResult = (res) => {
   };
 };
 
-export const deleteResult = (deleteId) => {
+export const deleteResult = (resElId) => {
   return {
     type: DELETE_RESULT,
-    resultElId: deleteId
+    resultElId: resElId
   };
 };
