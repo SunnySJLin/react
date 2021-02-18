@@ -19,7 +19,7 @@ Chapter | Title | Project Name
 | 13 | Forms and Form Validation | Burger Builder
 | 14 | Redux | Counter <br> Person
 | 15 | Adding Redux to our Project | Burger Builder
-| 16 | Redux Advanced
+| 16 | Redux Advanced | Counter
 | 17 | Redux Advanced: Burger Project
 | 18 | Adding Authentication to our Burger Project
 | 19 | Improving our Burger Project
