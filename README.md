@@ -20,7 +20,7 @@ Chapter | Title | Project Name
 | 14 | Redux | Counter <br> Person
 | 15 | Adding Redux to our Project | Burger Builder
 | 16 | Redux Advanced | Counter
-| 17 | Redux Advanced: Burger Project
+| 17 | Redux Advanced: Burger Project | Burger Builder
 | 18 | Adding Authentication to our Burger Project
 | 19 | Improving our Burger Project
 | 20 | Testing
