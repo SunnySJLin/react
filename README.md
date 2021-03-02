@@ -21,7 +21,7 @@ Chapter | Title | Project Name
 | 15 | Adding Redux to our Project | Burger Builder
 | 16 | Redux Advanced | Counter
 | 17 | Redux Advanced: Burger Project | Burger Builder
-| 18 | Adding Authentication to our Burger Project
+| 18 | Adding Authentication to our Burger Project | Burger Builder
 | 19 | Improving our Burger Project
 | 20 | Testing
 | 21 | Deploying the App to the Web
