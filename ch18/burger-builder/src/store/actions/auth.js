@@ -32,7 +32,7 @@ export const authLogout = () => {
 export const checkAuthTimeout = (expirationTime) => {
   return dispatch => {
     setTimeout( () => {
-      dispatch(authLogout())
+      dispatch(authLogout());
     }, expirationTime * 1000);
   };
 };
@@ -52,7 +52,6 @@ export const auth = (email, password, isSignup) => {
     if(!isSignup) {
       url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + API_KEY;
     }
-    console.log(url);
 
     axios.post(url, authData)
       .then(response => {
@@ -64,5 +63,12 @@ export const auth = (email, password, isSignup) => {
         console.log(err);
         dispatch(authFail(err.response.data.error));
       });
+  };
+};
+
+export const setAuthRedirectPath = (path) => {
+  return {
+    type: actionTypes.SET_AUTH_REDIRECT_PATH,
+    path: path
   };
 };
