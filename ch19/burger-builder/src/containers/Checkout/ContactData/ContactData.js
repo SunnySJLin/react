@@ -115,7 +115,6 @@ class ContactData extends Component {
   }
 
   inputChangedHandler = (event, inputId) => {
-    // console.log(event.target.value);
     const updatedFormElement = updateObject(this.state.orderForm[inputId], {
       value: event.target.value,
       valid: checkValidity(event.target.value, this.state.orderForm[inputId].validation),
@@ -131,7 +130,6 @@ class ContactData extends Component {
       formIsValid = updatedOrderForm[inputId].valid && formIsValid;
     }
     
-    // console.log(updatedOrderForm);
     this.setState({orderForm: updatedOrderForm, formIsValid: formIsValid});
   }
 

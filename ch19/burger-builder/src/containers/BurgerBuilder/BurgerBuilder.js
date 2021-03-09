@@ -21,7 +21,7 @@ class BurgerBuilder extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props); // have router props
+    // have router props
     this.props.onInitIngredients();
   }
 

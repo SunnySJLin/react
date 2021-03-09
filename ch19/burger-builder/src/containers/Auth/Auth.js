@@ -60,7 +60,6 @@ class Auth extends Component {
       } )
     } );
 
-    // console.log(updatedControls);
     this.setState({controls: updatedControls});
   }
 
