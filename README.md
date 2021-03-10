@@ -22,8 +22,8 @@ Chapter | Title | Project Name
 | 16 | Redux Advanced | Counter
 | 17 | Redux Advanced: Burger Project | Burger Builder
 | 18 | Adding Authentication to our Burger Project | Burger Builder
-| 19 | Improving our Burger Project
-| 20 | Testing
+| 19 | Improving our Burger Project | Burger Builder
+| 20 | Testing | Burger Builder
 | 21 | Deploying the App to the Web
 | 22 | Bonus: Working with Webpack
 | 23 | Bonus: Next.js
