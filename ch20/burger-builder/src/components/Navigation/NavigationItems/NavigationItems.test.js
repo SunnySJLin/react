@@ -26,6 +26,11 @@ describe('<NavigationItems />', () => {
     expect(wrapper.find(NavigationItem)).toHaveLength(3);
   });
 
+  it('should an exact logout button', () => {
+    wrapper.setProps({isAuthenticated: true});
+    expect( wrapper.contains(<NavigationItem link="/logout">Logout</NavigationItem>) ).toEqual(true);
+  });
+
   afterEach(() => {
     // Automatically be executed for cleanup after all your tests
 
