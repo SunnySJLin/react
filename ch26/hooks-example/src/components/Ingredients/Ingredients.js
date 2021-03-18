@@ -8,13 +8,17 @@ const Ingredients = () => {
   const [userIngredients, setUserIngredients] = useState([]);
 
   // Store into userIngredients array
-  const addIngredientHandler = (ingredient) => {
+  const addIngredientHandler = ingredient => {
     setUserIngredients(prevIngredients => [
       ...prevIngredients,
-      { id: Math.random().toString(), ...ingredient }
+      { id: ingredient.title, ...ingredient }
     ]);
+  };
 
-    console.log(userIngredients);
+  const removeIngredientHandler = ingredientId => {
+    setUserIngredients(prevIngredients =>
+      prevIngredients.filter(ingredient => ingredient.id !== ingredientId)
+    );
   };
 
   return (
@@ -23,9 +27,10 @@ const Ingredients = () => {
       
       <section>
         <Search />
-        <IngredientList 
+        <IngredientList
           ingredients={userIngredients}
-          onRemoveItem={ () => {}} />
+          onRemoveItem={removeIngredientHandler}
+        />
       </section>
     </div>
   );
