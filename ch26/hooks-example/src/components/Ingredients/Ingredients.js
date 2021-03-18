@@ -9,10 +9,17 @@ const Ingredients = () => {
 
   // Store into userIngredients array
   const addIngredientHandler = ingredient => {
-    setUserIngredients(prevIngredients => [
-      ...prevIngredients,
-      { id: ingredient.title, ...ingredient }
-    ]);
+    fetch('https://react17-hooks-default-rtdb.firebaseio.com/ingredients.json', {
+      method: 'POST',
+      body: JSON.stringify(ingredient),
+      headers: {'Content-Type': 'application/json'}
+    }).then(res => res.json())
+      .then(response => {
+        setUserIngredients(prevIngredients => [
+          ...prevIngredients,
+          { id: response.name, ...ingredient }
+        ]);
+      });
   };
 
   const removeIngredientHandler = ingredientId => {
