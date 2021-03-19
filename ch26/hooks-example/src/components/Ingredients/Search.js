@@ -34,7 +34,7 @@ const Search = React.memo(props => {
     return () => {
       // The cleanup function runs when the component gets unmounted
       clearTimeout(timer);
-    }
+    };
   }, [enteredFilter, onLoadIngredients, inputRef]);
 
   return (
