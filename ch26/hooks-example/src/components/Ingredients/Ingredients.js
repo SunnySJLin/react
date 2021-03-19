@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 
 import IngredientForm from './IngredientForm';
 import IngredientList from './IngredientList';
@@ -6,24 +6,6 @@ import Search from './Search';
 
 const Ingredients = () => {
   const [userIngredients, setUserIngredients] = useState([]);
-
-  useEffect(() => {
-    fetch('https://react17-hooks-default-rtdb.firebaseio.com/ingredients.json')
-      .then(res => res.json())
-      .then(responseData => {
-        const loadedIngredients = [];
-        for(const key in responseData) {
-          loadedIngredients.push({
-              id: key,
-              title: responseData[key].title,
-              amount: responseData[key].amount
-          });
-        }
-        setUserIngredients(loadedIngredients);
-        console.log('INITIAL VALUES', loadedIngredients);
-      })
-  }, []);
-  // If you pass an empty array ([]), the props and state inside the effect will always have their initial values.
 
   useEffect(() => {
     console.log('RENDERING INGREDIENTS',userIngredients);
@@ -52,12 +34,18 @@ const Ingredients = () => {
     );
   };
 
+  const filteredIngredientsHandler = useCallback(filteredIngredients => {
+    setUserIngredients(filteredIngredients);
+  }, []);
+
   return (
     <div className="App">
       <IngredientForm onAddIngredient={addIngredientHandler} />
       
       <section>
-        <Search />
+        <Search
+          onLoadIngredients={filteredIngredientsHandler}
+        />
         <IngredientList
           ingredients={userIngredients}
           onRemoveItem={removeIngredientHandler}
