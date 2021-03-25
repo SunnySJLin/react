@@ -25,12 +25,12 @@ Chapter | Title | Project Name
 | 19 | Improving our Burger Project | Burger Builder
 | 20 | Testing | Burger Builder
 | 21 | Deploying the App to the Web | Burger Builder
-| 22 | Bonus: Working with Webpack | pizza
+| 22 | Bonus: Working with Webpack | Pizza
 | 23 | Bonus: Next.js
 | 24 | Bonus: Animations in React Apps
 | 25 | Bonus: A Brief Introduction to Redux Saga
-| 26 | React Hooks | hooks-example
-| 27 | Using Hooks in the Burger Builder
+| 26 | React Hooks | Hooks Example
+| 27 | Using Hooks in the Burger Builder | Burger Builder
 | 28 | Bonus: Replacing Redux with React Hooks
 | 29 | Bonus: Building the Burger CSS
 | 30 | Next Steps and Course Roundup
