@@ -13,11 +13,13 @@ import * as actionCreators from '../../store/actions/index';
 
 const burgerBuilder = props => {
   const [purchasing, setPurchasing] = useState(false);
+  
+  const {onInitIngredients} = props;
 
   useEffect(() =>{
     // have router props
-    props.onInitIngredients();
-  }, []);
+    onInitIngredients();
+  }, [onInitIngredients]);
 
   const updatePurchaseState = ingredients => {
     const sum = Object.keys(ingredients)
