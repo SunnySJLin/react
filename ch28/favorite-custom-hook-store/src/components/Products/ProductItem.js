@@ -1,15 +1,15 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 
 import Card from '../UI/Card';
+import { useStore } from '../../hooks-store/store';
 import './ProductItem.css';
-import { toggleFav } from '../../store/actions/products';
 
 const ProductItem = props => {
-  const dispatch = useDispatch();
+  // To get dispatch function and store to dispatch constant
+  const dispatch = useStore()[1];
 
   const toggleFavHandler = () => {
-    dispatch(toggleFav(props.id));
+    dispatch('TOGGLE_FAV', props.id);
   };
 
   return (
