@@ -11,7 +11,7 @@
     left: 25%;
     width: 50%;
     transition: all 0.3s ease-out;
-    pointer-events: auto;
+    /* pointer-events: auto; */
 }
 
 .ModalOpen {
@@ -19,7 +19,7 @@
 }
 
 .ModalClosed {
-    pointer-events: none;
+    /* pointer-events: none; */
     animation: closeModal 0.4s ease-out forwards;
 }
 
