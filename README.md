@@ -27,7 +27,7 @@ Chapter | Title | Project Name
 | 21 | Deploying the App to the Web | Burger Builder
 | 22 | Bonus: Working with Webpack | Pizza
 | 23 | Bonus: Next.js | Nextjs
-| 24 | Bonus: Animations in React Apps
+| 24 | Bonus: Animations in React Apps | Animations
 | 25 | Bonus: A Brief Introduction to Redux Saga
 | 26 | React Hooks | Hooks Example
 | 27 | Using Hooks in the Burger Builder | Burger Builder
