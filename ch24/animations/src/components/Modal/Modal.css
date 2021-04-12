@@ -13,16 +13,16 @@
     transition: all 0.3s ease-out;
 }
 
-/* .ModalOpen {
+.ModalOpen {
     animation: openModal 0.4s ease-out forwards;
 }
 
 .ModalClosed {
     animation: closeModal 1s ease-out forwards;
-} */
+}
 
 
-.fade-enter {
+/* .fade-enter {
 
 }
 
@@ -36,7 +36,7 @@
 
 .fade-exit-active {
     animation: closeModal 1s ease-out forwards;
-}
+} */
 
 @keyframes openModal {
     0% {
