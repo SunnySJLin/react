@@ -11,15 +11,30 @@
     left: 25%;
     width: 50%;
     transition: all 0.3s ease-out;
-    /* pointer-events: auto; */
 }
 
-.ModalOpen {
+/* .ModalOpen {
     animation: openModal 0.4s ease-out forwards;
 }
 
 .ModalClosed {
-    /* pointer-events: none; */
+    animation: closeModal 1s ease-out forwards;
+} */
+
+
+.fade-enter {
+
+}
+
+.fade-enter-active {
+    animation: openModal 0.4s ease-out forwards;
+}
+
+.fade-exit {
+
+}
+
+.fade-exit-active {
     animation: closeModal 1s ease-out forwards;
 }
 
